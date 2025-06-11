@@ -1,0 +1,16 @@
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\bin\Debug\net8.0\jsconfig1.json
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\bin\Debug\net8.0\OnlineStorBuisness.deps.json
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\bin\Debug\net8.0\OnlineStorBuisness.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\bin\Debug\net8.0\OnlineStorBuisness.pdb
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\bin\Debug\net8.0\OnlineStorAccess.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\bin\Debug\net8.0\OnlineStorAccess.pdb
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.csproj.AssemblyReference.cache
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.AssemblyInfoInputs.cache
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.AssemblyInfo.cs
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.csproj.CoreCompileInputs.cache
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineSt.5127A6DA.Up2Date
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\refint\OnlineStorBuisness.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.pdb
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\ref\OnlineStorBuisness.dll

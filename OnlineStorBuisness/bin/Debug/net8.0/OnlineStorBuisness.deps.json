@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "OnlineStorBuisness/1.0.0": {
+        "dependencies": {
+          "OnlineStorAccess": "1.0.0"
+        },
+        "runtime": {
+          "OnlineStorBuisness.dll": {}
+        }
+      },
+      "OnlineStorAccess/1.0.0": {
+        "runtime": {
+          "OnlineStorAccess.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OnlineStorBuisness/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OnlineStorAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

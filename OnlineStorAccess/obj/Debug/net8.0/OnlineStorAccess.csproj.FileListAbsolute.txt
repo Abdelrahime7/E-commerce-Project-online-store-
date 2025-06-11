@@ -1,0 +1,12 @@
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\bin\Debug\net8.0\jsconfig1.json
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\bin\Debug\net8.0\OnlineStorAccess.deps.json
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\bin\Debug\net8.0\OnlineStorAccess.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\bin\Debug\net8.0\OnlineStorAccess.pdb
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.AssemblyInfoInputs.cache
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.AssemblyInfo.cs
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.csproj.CoreCompileInputs.cache
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\refint\OnlineStorAccess.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.pdb
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\ref\OnlineStorAccess.dll
