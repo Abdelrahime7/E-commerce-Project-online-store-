@@ -10,3 +10,5 @@ C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAc
 C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\refint\OnlineStorAccess.dll
 C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.pdb
 C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\ref\OnlineStorAccess.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.csproj.AssemblyReference.cache
+C:\Users\Azur Computer\E-Commerce\OnlineStorAccess\obj\Debug\net8.0\OnlineStorAccess.sourcelink.json

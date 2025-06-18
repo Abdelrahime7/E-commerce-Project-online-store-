@@ -14,3 +14,4 @@ C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStor
 C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\refint\OnlineStorBuisness.dll
 C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.pdb
 C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\ref\OnlineStorBuisness.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorBuisness\obj\Debug\net8.0\OnlineStorBuisness.sourcelink.json

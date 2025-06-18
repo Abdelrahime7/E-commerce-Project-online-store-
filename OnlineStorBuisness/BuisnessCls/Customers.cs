@@ -1,4 +1,4 @@
-﻿namespace OnlineStorBuisness
+﻿namespace OnlineStorBuisness.BuisnessCls
 {
     public class Customers
     {

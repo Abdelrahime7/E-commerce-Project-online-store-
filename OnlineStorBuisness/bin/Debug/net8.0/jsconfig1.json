@@ -1,5 +1,4 @@
 {
-  "ConnectionStrings": {
-    "Default": ""
-  }
+  "Constr":"Server=. ,DataBase= ,"
+    
 }

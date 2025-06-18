@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineStorAccess
+namespace OnlineStorBuisness.Interfaces
 {
-    internal class AppDbContext
+    internal interface IpaymentMethod
     {
+        public void Paymment();
+            
     }
 }

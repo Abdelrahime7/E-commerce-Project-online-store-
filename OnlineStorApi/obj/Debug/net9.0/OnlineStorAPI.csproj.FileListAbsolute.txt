@@ -37,3 +37,4 @@ C:\Users\Azur Computer\E-Commerce\OnlineStorApi\obj\Debug\net9.0\refint\OnlineSt
 C:\Users\Azur Computer\E-Commerce\OnlineStorApi\obj\Debug\net9.0\OnlineStorAPI.pdb
 C:\Users\Azur Computer\E-Commerce\OnlineStorApi\obj\Debug\net9.0\OnlineStorAPI.genruntimeconfig.cache
 C:\Users\Azur Computer\E-Commerce\OnlineStorApi\obj\Debug\net9.0\ref\OnlineStorAPI.dll
+C:\Users\Azur Computer\E-Commerce\OnlineStorApi\obj\Debug\net9.0\OnlineStorAPI.sourcelink.json
