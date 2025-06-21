@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineStorAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53ada2747f5b99de45cbf1c84e9984a58025f618")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1cd7abf40b3458724646fd32556d011978539536")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineStorAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineStorAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
