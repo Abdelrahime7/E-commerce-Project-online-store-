@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineSToreApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4889c511780263bdca4143e9052dd3cfff93a784")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6c2e77c230fd4997c1bc517d30ddd308ee1a1ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineSToreApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineSToreApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
