@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
-using OnlineStorAccess.ADbContext;
+﻿
+
 using OnlineStorAccess.DataAccessCls;
 using OnlineStorAccess.entities;
 
