@@ -1,6 +1,6 @@
-@OnlineStoreApi_HostAddress = http://localhost:5260
+@OnlineSToreApi_HostAddress = http://localhost:5072
 
-GET {{OnlineStoreApi_HostAddress}}/weatherforecast/
+GET {{OnlineSToreApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

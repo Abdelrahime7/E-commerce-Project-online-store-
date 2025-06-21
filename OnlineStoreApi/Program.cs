@@ -1,5 +1,5 @@
 
-namespace OnlineStoreApi
+namespace OnlineSToreApi
 {
     public class Program
     {
