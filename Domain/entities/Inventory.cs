@@ -9,6 +9,9 @@ namespace OnlineStorAccess.entities
     public class Inventory
     {
         public int ID { get; set; }
+        public int ItemID { get; set; }
+        public int ItemQuantity { get; set; }
+
         
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 namespace OnlineStorAccess.ADbContext
 { 
 
-    internal class AppDbContext :DbContext
+    public class AppDbContext :DbContext
     {
         public DbSet<entities.Customer> Customers { get; set; } 
         public DbSet<entities.Inventory> Inventorys { get; set; }

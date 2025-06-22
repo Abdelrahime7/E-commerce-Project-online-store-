@@ -11,9 +11,9 @@ namespace OnlineStorAccess.entities
         public int Id { get; set; }
         public string ? Descreption { get; set; }
 
-        public required Customer  Customer { get; set; }
+        public int    CustomerID { get; set; }
 
-        public required Item Item { get; set; }
+        public int Item { get; set; }
 
         public DateTime Date { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using OnlineStorAccess.entities;
+﻿using Domain.entities;
+using OnlineStorAccess.entities;
 
 namespace OnlineStorAccess.DataAccessCls
 {
@@ -14,6 +15,13 @@ namespace OnlineStorAccess.DataAccessCls
         IGenericRepository<ItemGallery> ItemGallerys { get; }
         IGenericRepository<Inventory> Inventorys { get; }
         IGenericRepository<Review> Reviews { get; }
+        IGenericRepository<Salle> Salles { get; }
+        IGenericRepository<Person> People { get; }
+        IGenericRepository<PurchaseHistory> PurchasesHistory { get; }
+
+
+
+
         Task SaveAsync();
 
     

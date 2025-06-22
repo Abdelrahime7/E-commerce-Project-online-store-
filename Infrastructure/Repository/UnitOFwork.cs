@@ -1,10 +1,11 @@
-﻿using OnlineStorAccess.ADbContext;
+﻿using Domain.entities;
+using OnlineStorAccess.ADbContext;
 using OnlineStorAccess.entities;
 using System.Windows.Markup;
 
 namespace OnlineStorAccess.DataAccessCls
 {
-     class UnitOFwork : IUnitOfwork
+    public class UnitOFwork : IUnitOfwork
     {
 
         private readonly AppDbContext _appDbContext;
@@ -20,10 +21,13 @@ namespace OnlineStorAccess.DataAccessCls
             ItemGallerys = new GenericRepository<ItemGallery>(_appDbContext);
             Inventorys = new GenericRepository<Inventory>(_appDbContext);
             Reviews = new GenericRepository<Review>(_appDbContext);
-            
+            Salles = new GenericRepository<Salle>(_appDbContext);
+            People = new GenericRepository<Person>(_appDbContext);
+            PurchasesHistory= new GenericRepository<PurchaseHistory>(_appDbContext);
+
         }
-       
-         
+
+
         public IGenericRepository<User> Users {  get; private set; }
 
         public IGenericRepository<Customer> Customers { get; private set; }
@@ -39,6 +43,11 @@ namespace OnlineStorAccess.DataAccessCls
 
         public IGenericRepository<Review> Reviews { get; private set; }
 
+        public IGenericRepository<Salle> Salles { get; private set; }
+
+        public IGenericRepository<Person> People {get; private set;}
+
+        public IGenericRepository<PurchaseHistory> PurchasesHistory { get; private set; }
         public async Task SaveAsync() => await _appDbContext.SaveChangesAsync();
 
         public void Dispose()=>_appDbContext.Dispose();

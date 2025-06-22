@@ -9,7 +9,7 @@ namespace OnlineStorAccess.entities
     public class ItemGallery
     {
         public int  ID  { get; set; }
-        public required Item Item { get; set; }
+        public  int ItemID { get; set; }
 
         public string ImageLink { get; set; } = null!;
 

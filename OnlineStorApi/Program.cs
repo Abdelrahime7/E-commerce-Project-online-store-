@@ -1,4 +1,6 @@
 
+using OnlineStorAccess.DataAccessCls;
+
 namespace OnlineStorApi
 {
     public class Program
@@ -6,6 +8,10 @@ namespace OnlineStorApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            builder.Services.AddScoped<IUnitOfwork, UnitOFwork>();
+
 
             // Add services to the container.
 

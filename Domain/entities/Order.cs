@@ -15,9 +15,10 @@ namespace OnlineStorAccess.entities
         }
 
         public int ID { get; set; }
+        public int InvoiceID { get; set; }
         public OrderStatus Status { get; set; }
-
-        public required Customer Customer {  get; set; }
+         
+        public int  CustomerID {  get; set; }
 
     }
 }
