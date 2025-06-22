@@ -1,5 +1,6 @@
 ﻿using OnlineStorAccess.ADbContext;
 using OnlineStorAccess.entities;
+using System.Windows.Markup;
 
 namespace OnlineStorAccess.DataAccessCls
 {
@@ -19,9 +20,10 @@ namespace OnlineStorAccess.DataAccessCls
             ItemGallerys = new GenericRepository<ItemGallery>(_appDbContext);
             Inventorys = new GenericRepository<Inventory>(_appDbContext);
             Reviews = new GenericRepository<Review>(_appDbContext);
-
+            
         }
-
+       
+         
         public IGenericRepository<User> Users {  get; private set; }
 
         public IGenericRepository<Customer> Customers { get; private set; }
