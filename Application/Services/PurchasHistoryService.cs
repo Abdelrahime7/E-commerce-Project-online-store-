@@ -1,13 +1,13 @@
 ﻿using Domain.entities;
-using OnlineStorAccess.DataAccessCls;
+using Domain.Interfaces;
 
 namespace Application.Services
 {
     public class PurchasHistoryService
     {
-        private readonly IUnitOfwork _unitOfwork;
+        private readonly IUnitOfWork _unitOfwork;
 
-        public PurchasHistoryService(IUnitOfwork unitOfwork)
+        public PurchasHistoryService(IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }
@@ -57,7 +57,7 @@ namespace Application.Services
         {
 
 
-            if (GetByID(purchase.ID) != null)
+            if (GetByID(purchase.Id) != null)
             {
                 _unitOfwork.PurchasesHistory.UpdateAsync(purchase);
                 _unitOfwork.SaveAsync();

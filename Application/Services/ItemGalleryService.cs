@@ -1,12 +1,12 @@
-﻿using OnlineStorAccess.DataAccessCls;
-using OnlineStorAccess.entities;
+﻿using Domain.entities;
+using Domain.Interfaces;
 
 namespace OnlineStorAccess.Services
 {
     public  class ItemGalleryService 
     {
-        readonly private IUnitOfwork _unitOfwork;
-        public ItemGalleryService(IUnitOfwork unitOfwork)
+        readonly private IUnitOfWork _unitOfwork;
+        public ItemGalleryService(IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }
@@ -55,7 +55,7 @@ namespace OnlineStorAccess.Services
 
         public void Update(ItemGallery itemGallery)
         {
-            if (GetByID(itemGallery.ID) != null)
+            if (GetByID(itemGallery.Id) != null)
             {
                 _unitOfwork.ItemGallerys.UpdateAsync(itemGallery);
                 _unitOfwork.SaveAsync();
