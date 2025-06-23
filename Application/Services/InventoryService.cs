@@ -1,13 +1,13 @@
-﻿using OnlineStorAccess.DataAccessCls;
-using OnlineStorAccess.entities;
+﻿using Domain.entities;
+using Domain.Interfaces;
 
 namespace OnlineStorAccess.Services
 {
     public class InventoryService 
     {
-         private readonly IUnitOfwork _unitOfwork;
+         private readonly IUnitOfWork _unitOfwork;
 
-        public InventoryService(IUnitOfwork unitOfwork)
+        public InventoryService(IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }
@@ -49,7 +49,7 @@ namespace OnlineStorAccess.Services
 
         public void Update(Inventory Inventory)
         {
-            if (GetByID(Inventory.ID)!= null)
+            if (GetByID(Inventory.Id)!= null)
             {
                 _unitOfwork.Inventorys.UpdateAsync(Inventory);
                 _unitOfwork.SaveAsync();

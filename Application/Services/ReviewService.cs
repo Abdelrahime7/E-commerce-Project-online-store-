@@ -1,14 +1,14 @@
 ﻿
-using OnlineStorAccess.DataAccessCls;
-using OnlineStorAccess.entities;
+using Domain.entities;
+using Domain.Interfaces;
 
 namespace OnlineStorAccess.Services
 {
     public  class ReviewService
     {
-        private readonly IUnitOfwork _unitOfwork;
+        private readonly IUnitOfWork _unitOfwork;
 
-        public ReviewService( IUnitOfwork unitOfwork)
+        public ReviewService( IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }

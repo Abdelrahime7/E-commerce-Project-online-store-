@@ -1,12 +1,12 @@
-﻿using OnlineStorAccess.DataAccessCls;
-using OnlineStorAccess.entities;
+﻿using Domain.entities;
+using Domain.Interfaces;
 
 namespace OnlineStorAccess.Services
 {
     public  class UserService
     {
-        readonly private IUnitOfwork _unitOfwork;
-        public UserService(IUnitOfwork unitOfwork)
+        readonly private IUnitOfWork _unitOfwork;
+        public UserService(IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }

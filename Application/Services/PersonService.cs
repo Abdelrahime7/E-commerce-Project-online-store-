@@ -1,13 +1,13 @@
 ﻿using Domain.entities;
-using OnlineStorAccess.DataAccessCls;
+using Domain.Interfaces;
 
 namespace Application.Services
 {
     public class PersonService 
     {
-        private readonly IUnitOfwork _unitOfwork;
+        private readonly IUnitOfWork _unitOfwork;
 
-        public PersonService(IUnitOfwork unitOfwork)
+        public PersonService(IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }
@@ -57,7 +57,7 @@ namespace Application.Services
         {
 
 
-            if (GetByID(person.id) != null)
+            if (GetByID(person.Id) != null)
             {
                 _unitOfwork.People.UpdateAsync(person);
                 _unitOfwork.SaveAsync();

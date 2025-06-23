@@ -1,12 +1,12 @@
-﻿using OnlineStorAccess.DataAccessCls;
-using OnlineStorAccess.entities;
+﻿using Domain.entities;
+using Domain.Interfaces;
 
 namespace OnlineStorAccess.Services
 {
     public  class OrderService 
     {
-        readonly private IUnitOfwork _unitOfwork;
-        public OrderService(IUnitOfwork unitOfwork)
+        readonly private IUnitOfWork _unitOfwork;
+        public OrderService(IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }
@@ -51,7 +51,7 @@ namespace OnlineStorAccess.Services
 
         public void Update(Order order)
         {
-            if (GetByID(order.ID) != null)
+            if (GetByID(order.Id) != null)
             {
                 _unitOfwork.Orders.UpdateAsync(order);
                 _unitOfwork.SaveAsync();

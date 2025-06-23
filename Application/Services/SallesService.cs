@@ -1,19 +1,19 @@
 ﻿using Domain.entities;
-using OnlineStorAccess.DataAccessCls;
+using Domain.Interfaces;
 
 
 namespace Application.Services
 {
-    public class SallesService 
+    public class SalesService 
     {
 
-        readonly private IUnitOfwork _unitOfwork;
+        readonly private IUnitOfWork _unitOfwork;
 
-        public SallesService(IUnitOfwork unitOfwork)
+        public SalesService(IUnitOfWork unitOfwork)
         {
             _unitOfwork = unitOfwork;
         }
-        public void Add(Salle sale)
+        public void Add(Sales sale)
         {
             if (sale != null)
             {
@@ -33,7 +33,7 @@ namespace Application.Services
             }
         }
 
-        public Salle? GetByID(int id)
+        public Sales? GetByID(int id)
         {
             var saleProcess = _unitOfwork.Salles.GetByIDAsync(id);
             if (saleProcess != null)
@@ -43,7 +43,7 @@ namespace Application.Services
             return null;
         }
 
-        public IEnumerable<Salle> Gettall()
+        public IEnumerable<Sales> Gettall()
         {
 
             var Salles = _unitOfwork.Salles.GetAllAsync().Result;
@@ -51,9 +51,9 @@ namespace Application.Services
             return Salles;
         }
 
-        public void Update(Salle sale)
+        public void Update(Sales sale)
         {
-            if (GetByID(sale.ID) != null)
+            if (GetByID(sale.Id) != null)
             {
                 _unitOfwork.Salles.UpdateAsync(sale);
                 _unitOfwork.SaveAsync();
