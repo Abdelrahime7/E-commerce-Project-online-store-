@@ -1,12 +1,9 @@
 ﻿using Domain.entities;
-using OnlineStorAccess.entities;
 
-namespace OnlineStorAccess.DataAccessCls
+namespace Domain.Interfaces
 {
-     public interface IUnitOfwork:IDisposable
-
+     public interface IUnitOfWork:IDisposable
     {
-
         IGenericRepository<User> Users { get; }
         IGenericRepository<Customer> Customers { get; }
         IGenericRepository<Order> Orders { get; }
@@ -15,16 +12,10 @@ namespace OnlineStorAccess.DataAccessCls
         IGenericRepository<ItemGallery> ItemGallerys { get; }
         IGenericRepository<Inventory> Inventorys { get; }
         IGenericRepository<Review> Reviews { get; }
-        IGenericRepository<Salle> Salles { get; }
+        IGenericRepository<Sales> Salles { get; }
         IGenericRepository<Person> People { get; }
         IGenericRepository<PurchaseHistory> PurchasesHistory { get; }
 
-
-
-
         Task SaveAsync();
-
-    
-
     }
 }
