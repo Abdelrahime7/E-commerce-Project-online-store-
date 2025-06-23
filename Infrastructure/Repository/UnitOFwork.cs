@@ -1,11 +1,10 @@
 ﻿using Domain.entities;
-using OnlineStorAccess.ADbContext;
-using OnlineStorAccess.entities;
-using System.Windows.Markup;
+using Domain.Interfaces;
+using Infrastructure.ADbContext;
 
-namespace OnlineStorAccess.DataAccessCls
+namespace Infrastructure.Repository
 {
-    public class UnitOFwork : IUnitOfwork
+    public class UnitOFwork : IUnitOfWork
     {
 
         private readonly AppDbContext _appDbContext;
@@ -21,7 +20,7 @@ namespace OnlineStorAccess.DataAccessCls
             ItemGallerys = new GenericRepository<ItemGallery>(_appDbContext);
             Inventorys = new GenericRepository<Inventory>(_appDbContext);
             Reviews = new GenericRepository<Review>(_appDbContext);
-            Salles = new GenericRepository<Salle>(_appDbContext);
+            Salles = new GenericRepository<Sales>(_appDbContext);
             People = new GenericRepository<Person>(_appDbContext);
             PurchasesHistory= new GenericRepository<PurchaseHistory>(_appDbContext);
 
@@ -43,7 +42,7 @@ namespace OnlineStorAccess.DataAccessCls
 
         public IGenericRepository<Review> Reviews { get; private set; }
 
-        public IGenericRepository<Salle> Salles { get; private set; }
+        public IGenericRepository<Sales> Salles { get; private set; }
 
         public IGenericRepository<Person> People {get; private set;}
 

@@ -1,34 +1,25 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace OnlineStorAccess.ADbContext
+namespace Infrastructure.ADbContext
 { 
 
-    public class AppDbContext :DbContext
+    public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
-        public DbSet<entities.Customer> Customers { get; set; } 
-        public DbSet<entities.Inventory> Inventorys { get; set; }
-        public DbSet<entities.Item> Items { get; set; }
-        public DbSet<entities.Invoice> Invoices { get; set; }
-        public DbSet<entities.ItemGallery> ItemGallerys { get; set; }
-        public DbSet<entities.Order> Orders { get; set; }
-        public DbSet<entities.Review> Reviews { get; set; }
-        public DbSet<entities.User> Users { get; set; }
-
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public DbSet<Customer> Customers { get; set; } 
+        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<ItemGallery> ItemGalleries { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<User> Users { get; set; }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-
-            var Configuration = new ConfigurationBuilder()
-               .AddJsonFile("jsconfig1.json").Build();
-            var Constr = Configuration.GetSection("Constr").Value;
-
-            
-           
-            
-
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
-
     }
 }
