@@ -21,27 +21,52 @@ namespace Infrastructure.Repository
 
         public async Task AddAsync(T entity)
         {
-            await _dbSet.AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
+            try
+            {
+                await _dbSet.AddAsync(entity);
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception(ex.Message);
+
+            }
+
         }
 
         public async Task DeleteAsync(int id)
         {
-            var entity = await _dbSet.FindAsync(id);
-            if (entity != null)
+            try
             {
-                _dbSet.Remove(entity);
+                var entity = await _dbSet.FindAsync(id);
+                if (entity != null)
+                {
+                    _dbSet.Remove(entity);
+                    await _dbContext.SaveChangesAsync();
+                }
+            }
+            catch (Exception ex) {
+                throw new Exception(ex.Message);
+            }
+        }
+        public async Task<T> GetByIDAsync(int id)
+        {
+            try
+            {
+                return await _dbSet.FindAsync(id);
+            }
+            catch ( Exception ex) { throw new Exception(ex.Message); }
+        }
+
+        public  async Task UpdateAsync( T entity)
+        {
+            try
+            {
+
+                _dbSet.Update(entity);
                 await _dbContext.SaveChangesAsync();
             }
-            
-        }
-        public async Task<T> GetByIDAsync(int id) => await _dbSet.FindAsync(id);
-       
-
-        public  async Task UpdateAsync(T entity)
-        {
-             _dbSet.Update(entity);
-            await _dbContext.SaveChangesAsync();
+            catch (Exception ex){ throw new Exception(ex.Message); }
         }
     }
 }

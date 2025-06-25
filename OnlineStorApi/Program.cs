@@ -1,6 +1,7 @@
 using Application;
 using DotNetEnv;
 using Infrastructure;
+using OnlineStorApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddApplicationServices(builder.Configuration);
 
 var app = builder.Build();
 

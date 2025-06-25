@@ -12,7 +12,7 @@ namespace Domain.Interfaces
         IGenericRepository<ItemGallery> ItemGallerys { get; }
         IGenericRepository<Inventory> Inventorys { get; }
         IGenericRepository<Review> Reviews { get; }
-        IGenericRepository<Sales> Salles { get; }
+        IGenericRepository<Sale> Salles { get; }
         IGenericRepository<Person> People { get; }
         IGenericRepository<PurchaseHistory> PurchasesHistory { get; }
 

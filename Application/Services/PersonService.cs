@@ -1,5 +1,6 @@
 ﻿using Domain.entities;
 using Domain.Interfaces;
+using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -12,57 +13,54 @@ namespace Application.Services
             _unitOfwork = unitOfwork;
         }
 
-        public void Add(Person person)
+        public async Task<int> AddAsync(Person person)
         {
 
             if (person != null)
             {
-                _unitOfwork.People.AddAsync(person);
-                _unitOfwork.SaveAsync();
-
+              await  _unitOfwork.People.AddAsync(person);
+                
+                return  person.Id ;
             }
+            else return 0;
+
         }
 
-        public void Delete(int ID)
+        public async Task<bool> DeleteAsync(int ID)
         {
-            var Person = GetByID(ID);
+            var Person =  await GetByIDAsync(ID);
             if (Person != null)
             {
-                _unitOfwork.People.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.People.DeleteAsync(ID);
+                return true;
             }
 
+            return false;
         }
 
-        public Person? GetByID(int id)
+        public async Task<Person?> GetByIDAsync(int id)
         {
-            var person = _unitOfwork.People.GetByIDAsync(id);
+            var person = await _unitOfwork.People.GetByIDAsync(id);
             if (person != null)
             {
-                return person.Result;
+                return person;
             }
             return null;
             //
         }
 
-        public IEnumerable<Person> Gettall()
+        public async Task<IEnumerable<Person>> GettallAsync()
         {
-            var People = _unitOfwork.People.GetAllAsync().Result;
-
+            var People = await _unitOfwork.People.GetAllAsync();
             return People;
             // 
         }
 
-        public void Update(Person person)
+        public async Task UpdateAsync(Person person)
         {
 
-
-            if (GetByID(person.Id) != null)
-            {
-                _unitOfwork.People.UpdateAsync(person);
-                _unitOfwork.SaveAsync();
-
-            }
+        await  _unitOfwork.People.UpdateAsync(person);
+               
         }
 
 

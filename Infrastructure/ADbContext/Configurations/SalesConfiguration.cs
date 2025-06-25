@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.ADbContext.Configurations;
 
-public class SalesConfiguration : IEntityTypeConfiguration<Sales>
+public class SalesConfiguration : IEntityTypeConfiguration<Sale>
 {
-    public void Configure(EntityTypeBuilder<Sales> builder)
+    public void Configure(EntityTypeBuilder<Sale> builder)
     {
         builder.ToTable("Sales");
         

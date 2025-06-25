@@ -1,5 +1,6 @@
 ﻿using Domain.entities;
 using Domain.Interfaces;
+using System.Threading.Tasks;
 
 
 namespace Application.Services
@@ -13,52 +14,53 @@ namespace Application.Services
         {
             _unitOfwork = unitOfwork;
         }
-        public void Add(Sales sale)
+        public async Task <int>AddAsync(Sale sale)
         {
             if (sale != null)
             {
-                _unitOfwork.Salles.AddAsync(sale);
-                _unitOfwork.SaveAsync();
+                
+               await _unitOfwork.Salles.AddAsync(sale);
+              return sale.Id;
 
             }
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task<bool> DeleteAsync(int ID)
         {
-            var saleProcess = GetByID(ID);
+            var saleProcess = await GetByIDAsync(ID);
             if (saleProcess != null)
             {
-                _unitOfwork.Salles.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.Salles.DeleteAsync(ID);
+                return true;
             }
+            return false;
         }
 
-        public Sales? GetByID(int id)
+        public async Task<Sale?> GetByIDAsync(int id)
         {
-            var saleProcess = _unitOfwork.Salles.GetByIDAsync(id);
+            var saleProcess =await _unitOfwork.Salles.GetByIDAsync(id);
             if (saleProcess != null)
             {
-                return saleProcess.Result;
+                return saleProcess;
             }
             return null;
         }
 
-        public IEnumerable<Sales> Gettall()
+        public async Task<IEnumerable<Sale>> GettallAsync()
         {
 
-            var Salles = _unitOfwork.Salles.GetAllAsync().Result;
+            var Salles = await _unitOfwork.Salles.GetAllAsync();
 
             return Salles;
         }
 
-        public void Update(Sales sale)
+        public async Task UpdateAsync(Sale sale)
         {
-            if (GetByID(sale.Id) != null)
-            {
-                _unitOfwork.Salles.UpdateAsync(sale);
-                _unitOfwork.SaveAsync();
-
-            }
+           
+               await _unitOfwork.Salles.UpdateAsync(sale);
+            
         }
     }
 }
+     

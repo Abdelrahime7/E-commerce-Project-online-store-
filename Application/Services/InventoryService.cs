@@ -1,5 +1,6 @@
 ﻿using Domain.entities;
 using Domain.Interfaces;
+using System.Formats.Asn1;
 
 namespace OnlineStorAccess.Services
 {
@@ -11,28 +12,30 @@ namespace OnlineStorAccess.Services
         {
             _unitOfwork = unitOfwork;
         }
-        public void Add(Inventory inventory)
+        public async Task< int> AddAsync(Inventory inventory)
         {
             if (inventory != null)
             {
-                _unitOfwork.Inventorys.AddAsync(inventory);
-                _unitOfwork.SaveAsync();
+              await  _unitOfwork.Inventorys.AddAsync(inventory);
+               
+                return inventory.Id;
             }
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task< bool> DeleteAsync(int ID)
         {
            if (ID>0)
             {
-                _unitOfwork.Inventorys.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
-
+             await   _unitOfwork.Inventorys.DeleteAsync(ID);
+               return true;
             }
+           return false;
         }
 
-        public Inventory ? GetByID(int id)
+        public async Task < Inventory ?> GetByIDAsync(int id)
         {
-            var inventory = _unitOfwork.Inventorys.GetByIDAsync(id).Result;
+            var inventory = await _unitOfwork.Inventorys.GetByIDAsync(id);
             if (inventory != null)
                 return inventory;
             else return null;
@@ -40,20 +43,19 @@ namespace OnlineStorAccess.Services
 
         }
 
-        public IEnumerable<Inventory> Gettall()
+        public async Task< IEnumerable<Inventory>> GettallAsync()
         {
-            var inventorys = _unitOfwork.Inventorys.GetAllAsync().Result;
+            var inventorys = await _unitOfwork.Inventorys.GetAllAsync();
 
             return inventorys;
         }
 
-        public void Update(Inventory Inventory)
+        public async Task UpdateAsync( Inventory Inventory)
         {
-            if (GetByID(Inventory.Id)!= null)
-            {
-                _unitOfwork.Inventorys.UpdateAsync(Inventory);
-                _unitOfwork.SaveAsync();
-            }
+         
+               await _unitOfwork.Inventorys.UpdateAsync(Inventory);
+               
+            
         }
     }
 }

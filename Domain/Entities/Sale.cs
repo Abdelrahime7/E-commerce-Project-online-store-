@@ -1,6 +1,6 @@
 ﻿namespace Domain.entities;
 
-public class Sales
+public class Sale
 {
     public  int Id { get; set; }
     public  int OrderId { get; set; }

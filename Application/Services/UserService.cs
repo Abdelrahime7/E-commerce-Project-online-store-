@@ -1,5 +1,6 @@
 ﻿using Domain.entities;
 using Domain.Interfaces;
+using System.Threading.Tasks;
 
 namespace OnlineStorAccess.Services
 {
@@ -11,51 +12,51 @@ namespace OnlineStorAccess.Services
             _unitOfwork = unitOfwork;
         }
 
-        public void Add(User user)
+        public async Task <int> AddAsync(User user)
         {
             if (user != null)
             {
-                _unitOfwork.Users.AddAsync(user);
-                _unitOfwork.SaveAsync();
-
+                await _unitOfwork.Users.AddAsync(user);
+                return user.Id;
             }
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task<bool> DeleteAsync(int ID)
         {
-            var user = GetByID(ID);
+            var user = GetByIDAsync(ID);
             if (user != null)
             {
-                _unitOfwork.Users.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+              await  _unitOfwork.Users.DeleteAsync(ID);
+                return true;
             }
+            return false;   
         }
 
-        public User? GetByID(int id)
+        public async Task<User?> GetByIDAsync(int id)
         {
-            var user = _unitOfwork.Users.GetByIDAsync(id);
+            var user = await _unitOfwork.Users.GetByIDAsync(id);
             if (user != null)
             {
-                return user.Result;
+                return user;
             }
             return null;
         }
 
-        public IEnumerable<User> Gettall()
+        public async Task<IEnumerable<User>> GettallAsync()
         {
-            var Users = _unitOfwork.Users.GetAllAsync().Result;
+            var Users = await _unitOfwork.Users.GetAllAsync();
 
             return Users;
         }
 
-        public void Update(User user)
+        public async Task UpdateAsync(User user)
         {
-            if (GetByID(user.Id) != null)
-            {
-                _unitOfwork.Users.UpdateAsync(user);
-                _unitOfwork.SaveAsync();
-
-            }
+           
+            
+              await  _unitOfwork.Users.UpdateAsync(user);
+              
+            
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Domain.entities;
 using Domain.Interfaces;
+using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -12,57 +13,54 @@ namespace Application.Services
             _unitOfwork = unitOfwork;
         }
 
-        public void Add(PurchaseHistory purchase)
+        public async Task<int> AddAsync(PurchaseHistory purchase)
         {
 
             if (purchase != null)
             {
-                _unitOfwork.PurchasesHistory.AddAsync(purchase);
-                _unitOfwork.SaveAsync();
+             await   _unitOfwork.PurchasesHistory.AddAsync(purchase);
+                return purchase.Id;
 
             }
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task<bool> DeleteAsync(int ID)
         {
-            var PurchaseHistory = GetByID(ID);
-            if (PurchaseHistory != null)
+            if (ID >0)
             {
-                _unitOfwork.PurchasesHistory.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.PurchasesHistory.DeleteAsync(ID);
+                return true;
             }
-
+            return false;
         }
 
-        public PurchaseHistory? GetByID(int id)
+        public async Task<PurchaseHistory?> GetByIDAsync(int id)
         {
-            var PurchaseHistory = _unitOfwork.PurchasesHistory.GetByIDAsync(id);
+            var PurchaseHistory =await _unitOfwork.PurchasesHistory.GetByIDAsync(id);
             if (PurchaseHistory != null)
             {
-                return PurchaseHistory.Result;
+                return PurchaseHistory;
             }
             return null;
             //
         }
 
-        public IEnumerable<PurchaseHistory> Gettall()
+        public async Task<IEnumerable<PurchaseHistory>> GettallAsync()
         {
-            var PurchasesHistory = _unitOfwork.PurchasesHistory.GetAllAsync().Result;
+            var PurchasesHistory = await _unitOfwork.PurchasesHistory.GetAllAsync();
 
             return PurchasesHistory;
             // 
         }
 
-        public void Update(PurchaseHistory purchase)
+        public async Task UpdateAsync(PurchaseHistory purchase)
         {
 
 
-            if (GetByID(purchase.Id) != null)
-            {
-                _unitOfwork.PurchasesHistory.UpdateAsync(purchase);
-                _unitOfwork.SaveAsync();
-
-            }
+          
+             await _unitOfwork.PurchasesHistory.UpdateAsync(purchase);
+          
         }
 
 

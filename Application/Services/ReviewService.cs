@@ -1,6 +1,7 @@
 ﻿
 using Domain.entities;
 using Domain.Interfaces;
+using System.Threading.Tasks;
 
 namespace OnlineStorAccess.Services
 {
@@ -13,50 +14,50 @@ namespace OnlineStorAccess.Services
             _unitOfwork = unitOfwork;
         }
 
-        public void Add(Review review)
+        public async Task<int> AddAsync(Review review)
         {
             if (review != null)
             {
-                _unitOfwork.Reviews.AddAsync(review);
-                _unitOfwork.SaveAsync();
-
+              await  _unitOfwork.Reviews.AddAsync(review);
+               return review.Id;
             }
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task<bool> DeleteAsync(int ID)
         {
-            var review = GetByID(ID);
+            var review = GetByIDAsync(ID);
             if (review != null)
             {
-                _unitOfwork.Reviews.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.Reviews.DeleteAsync(ID);
+                return true;
             }
+            return false;
         }
 
-        public Review ?GetByID(int id)
+        public async Task<Review ?> GetByIDAsync(int id)
         {
-            var review = _unitOfwork.Reviews.GetByIDAsync(id);
+            var review = await _unitOfwork.Reviews.GetByIDAsync(id);
             if (review != null)
             {
-                return review.Result;
+                return review;
             }
             return null;
         }
 
-        public IEnumerable<Review> Gettall()
+        public async Task<IEnumerable<Review>> GettallAsync()
         {
-           var Reviews = _unitOfwork.Reviews.GetAllAsync().Result;
+            var Reviews = await _unitOfwork.Reviews.GetAllAsync();
+                 
             return Reviews;
         }
 
-        public void Update(Review review)
+        public async Task UpdateAsync(Review review)
         {
-            if (GetByID(review.Id) != null)
-            {
-                _unitOfwork.Reviews.UpdateAsync(review);
-                _unitOfwork.SaveAsync();
-
-            }
+           
+               await _unitOfwork.Reviews.UpdateAsync(review);
+              
+            
         }
     }
 }

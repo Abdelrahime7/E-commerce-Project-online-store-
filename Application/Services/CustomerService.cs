@@ -16,57 +16,58 @@ namespace OnlineStorAccess.Services
             _unitOfwork = unitOfwork;
         }
 
-        public void Add(Customer customer)
+        public  async Task<int> AddAsync(Customer customer)
         {
+           
+                if (customer != null)
+                {
+                  await  _unitOfwork.Customers.AddAsync(customer);
+                    return customer.Id;
+                }
             
-            if (customer != null) { 
-                _unitOfwork.Customers.AddAsync(customer);
-                _unitOfwork.SaveAsync();
-
-            }
+           
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task<bool> DeleteAsync(int ID)
         {
-            var Customer = GetByID(ID);
-            if (Customer != null)
+           
+            if (ID>0)
             {
-                _unitOfwork.Customers.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+                await _unitOfwork.Customers.DeleteAsync(ID);
+                
+                return true;
             }
+            return false;
 
         }
 
-        public Customer? GetByID(int id)
+        public async Task< Customer?> GetByIDAsync(int id)
         {
-         var customer=   _unitOfwork.Customers.GetByIDAsync(id);
+         var customer=  await  _unitOfwork.Customers.GetByIDAsync(id);
             if (customer != null)
             {
-                return  customer.Result;
+                return  customer;
             }
             return null;
            //
         }
 
-        public IEnumerable<Customer> Gettall()
+        public async Task< IEnumerable<Customer>> GetAllAsync()
         {
-            var Customers= _unitOfwork.Customers.GetAllAsync().Result;
+            var Customers= await _unitOfwork.Customers.GetAllAsync();
 
             return Customers;
            // 
         }
 
-        public void Update(Customer customer)
+        public async Task UpdateAsync(Customer customer)
         {
-          
-
-            if (GetByID(customer.Id)!=null)
-            {
-                _unitOfwork.Customers.UpdateAsync(customer);
-                _unitOfwork.SaveAsync();
-
-            }
+         await _unitOfwork.Customers.UpdateAsync(customer);
+               
         }
+
+
        
 
 

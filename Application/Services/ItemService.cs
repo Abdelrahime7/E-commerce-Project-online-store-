@@ -11,51 +11,52 @@ namespace OnlineStorAccess.Services
             _unitOfwork = unitOfwork;
         }
 
-        public void Add(Item item)
+        public async Task< int> AddAsync(Item item)
         {
             if (item != null)
             {
-                _unitOfwork.Items.AddAsync(item);
-                _unitOfwork.SaveAsync();
-
+              await  _unitOfwork.Items.AddAsync(item);
+               return item.Id;
             }
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task<  bool> DeleteAsync(int ID)
         {
-            var item = GetByID(ID);
-            if (item != null)
+            
+            if (ID>0)
             {
-                _unitOfwork.Items.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.Items.DeleteAsync(ID);
+                return true;
+
             }
+            return false;
         }
 
-        public Item ? GetByID(int id)
+        public async Task< Item ? > GetByIDAsync(int id)
         {
-            var Item= _unitOfwork.Items.GetByIDAsync(id);
+            var Item=  await _unitOfwork.Items.GetByIDAsync(id);
             if (Item != null)
             {
-                return Item.Result;
+                return Item;
             }
             return null;
         }
 
-        public IEnumerable<Item> Gettall()
+        public async Task< IEnumerable<Item>> GettallAsync()
         {
-            var Items = _unitOfwork.Items.GetAllAsync().Result;
+            var Items = await _unitOfwork.Items.GetAllAsync();
 
             return Items;
         }
 
-        public void Update(Item item)
+        public async Task UpdateAsync(Item item)
             
         {
 
-            if (GetByID(item.Id) != null)
+            if (await GetByIDAsync(item.Id) != null)
             {
-                _unitOfwork.Items.UpdateAsync(item);
-                _unitOfwork.SaveAsync();
+                await _unitOfwork.Items.UpdateAsync(item);
 
             }
         }

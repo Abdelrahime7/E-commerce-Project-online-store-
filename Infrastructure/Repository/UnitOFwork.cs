@@ -20,7 +20,7 @@ namespace Infrastructure.Repository
             ItemGallerys = new GenericRepository<ItemGallery>(_appDbContext);
             Inventorys = new GenericRepository<Inventory>(_appDbContext);
             Reviews = new GenericRepository<Review>(_appDbContext);
-            Salles = new GenericRepository<Sales>(_appDbContext);
+            Salles = new GenericRepository<Sale>(_appDbContext);
             People = new GenericRepository<Person>(_appDbContext);
             PurchasesHistory= new GenericRepository<PurchaseHistory>(_appDbContext);
 
@@ -42,7 +42,7 @@ namespace Infrastructure.Repository
 
         public IGenericRepository<Review> Reviews { get; private set; }
 
-        public IGenericRepository<Sales> Salles { get; private set; }
+        public IGenericRepository<Sale> Salles { get; private set; }
 
         public IGenericRepository<Person> People {get; private set;}
 

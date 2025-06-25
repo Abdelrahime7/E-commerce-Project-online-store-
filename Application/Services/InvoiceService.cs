@@ -11,48 +11,52 @@ namespace OnlineStorAccess.Services
         {
          _unitOfwork = unitOfwork;    
         }
-        public void Add(Invoice invoice)
+
+        public  async Task<int> AddAsync(Invoice invoice)
         {
             if (invoice != null)
             {
-                _unitOfwork.Invoices.AddAsync(invoice);
-                _unitOfwork.SaveAsync();
+              await  _unitOfwork.Invoices.AddAsync(invoice);
+                return invoice.Id;
             }
+            return 0;
         }
 
-        public void Delete(int ID)
+        public async Task< bool> DeleteAsync(int ID)
         {
-            var invoice = GetByID(ID);
-            if (invoice != null)
+
+            if (ID >0)
             {
-                _unitOfwork.Invoices.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.Invoices.DeleteAsync(ID);
+                return true;
             }
+            return false;
+                
         }
 
-        public Invoice ? GetByID(int id)
+        public async Task< Invoice ? > GetByIDAsync(int id)
         {
-            var Invoice = _unitOfwork.Invoices.GetByIDAsync(id);
+            var Invoice =await _unitOfwork.Invoices.GetByIDAsync(id);
             if (Invoice != null)
             {
-                return Invoice.Result;
+                return Invoice;
             }
             return null;
         }
 
-        public IEnumerable<Invoice> Gettall()
+        public async Task < IEnumerable<Invoice>> GettallAsync()
         {
-            var Invoices = _unitOfwork.Invoices.GetAllAsync().Result;
+            var Invoices = await _unitOfwork.Invoices.GetAllAsync();
 
             return Invoices;
         }
 
-        public void Update(Invoice invoice)
+        public async Task UpdateAsync(Invoice invoice)
         {
-            if (GetByID(invoice.Id) != null)
+            if (await GetByIDAsync(invoice.Id) != null)
             {
-                _unitOfwork.Invoices.UpdateAsync(invoice);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.Invoices.UpdateAsync(invoice);
+
 
             }
         }

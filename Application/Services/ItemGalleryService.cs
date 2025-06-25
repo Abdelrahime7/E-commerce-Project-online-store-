@@ -13,52 +13,53 @@ namespace OnlineStorAccess.Services
 
       
 
-        public void Add(ItemGallery gallery)
+        public async Task< int> AddAsync(ItemGallery gallery)
         {
 
             if (gallery != null)
             {
-                _unitOfwork.ItemGallerys.AddAsync(gallery);
-                _unitOfwork.SaveAsync();
+               await _unitOfwork.ItemGallerys.AddAsync(gallery);
+                return gallery.Id;
 
             }
+            return 0;
         }
 
-
-        public void Delete(int ID)
+        
+        public async Task<bool> DeleteAsync(int ID)
         {
-            var itemGallery = GetByID(ID);
-            if (itemGallery != null)
+            
+            if (ID>0)
             {
-                _unitOfwork.ItemGallerys.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+                await _unitOfwork.ItemGallerys.DeleteAsync(ID);
+                return true;
             }
+            return false;
         }
-
-        public ItemGallery ? GetByID(int id)
+        
+        public async Task  <ItemGallery ?> GetByIDAsync(int id)
         {
 
-            var itemGalery = _unitOfwork.ItemGallerys.GetByIDAsync(id);
+            var itemGalery =await _unitOfwork.ItemGallerys.GetByIDAsync(id);
             if (itemGalery != null)
             {
-                return itemGalery.Result;
+                return itemGalery;
             }
             return null;
         }
 
-        public IEnumerable<ItemGallery> Gettall()
+        public async Task <IEnumerable<ItemGallery>> GettallAsync()
         {
-            var ItemsGallery = _unitOfwork.ItemGallerys.GetAllAsync().Result;
+            var ItemsGallery = await _unitOfwork.ItemGallerys.GetAllAsync();
 
             return  ItemsGallery;
         }
 
-        public void Update(ItemGallery itemGallery)
+        public async Task UpdateAsync(ItemGallery itemGallery)
         {
-            if (GetByID(itemGallery.Id) != null)
+            if (await GetByIDAsync(itemGallery.Id) != null)
             {
-                _unitOfwork.ItemGallerys.UpdateAsync(itemGallery);
-                _unitOfwork.SaveAsync();
+                 await _unitOfwork.ItemGallerys.UpdateAsync(itemGallery);
 
             }
         }

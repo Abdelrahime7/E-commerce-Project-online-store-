@@ -1,5 +1,6 @@
 ﻿using Domain.entities;
 using Domain.Interfaces;
+using System.Threading.Tasks;
 
 namespace OnlineStorAccess.Services
 {
@@ -11,50 +12,52 @@ namespace OnlineStorAccess.Services
             _unitOfwork = unitOfwork;
         }
 
-        public void Add(Order order)
+        public async Task< int> AddAsync(Order order)
         {
 
             if (order != null)
             {
-                _unitOfwork.Orders.AddAsync(order);
-                _unitOfwork.SaveAsync();
+              await  _unitOfwork.Orders.AddAsync(order);
+                return order.Id;
 
             }
+            return 0;   
         }
 
-        public void Delete(int ID)
+        public async Task< bool> DeleteAsync(int ID)
         {
-            var Order = GetByID(ID);
-            if (Order != null)
+           
+            if (ID>0)
             {
-                _unitOfwork.Orders.DeleteAsync(ID);
-                _unitOfwork.SaveAsync();
+              await  _unitOfwork.Orders.DeleteAsync(ID);
+              return true;
             }
+             return false;
         }
 
-        public Order? GetByID(int id)
+        public async  Task< Order?> GetByIDAsync(int id)
         {
-            var order = _unitOfwork.Orders.GetByIDAsync(id);
+            var order =await _unitOfwork.Orders.GetByIDAsync(id);
             if (order != null)
             {
-                return order.Result;
+                return order;
             }
             return null;
         }
 
-        public IEnumerable<Order> Gettall()
+        public async Task< IEnumerable<Order>> GettallAsync()
         {
-            var Orders = _unitOfwork.Orders.GetAllAsync().Result;
+            var Orders = await _unitOfwork.Orders.GetAllAsync();
 
             return Orders;
         }
 
-        public void Update(Order order)
+        public async Task UpdateAsync(Order order)
         {
-            if (GetByID(order.Id) != null)
+            if (await GetByIDAsync(order.Id) != null)
             {
-                _unitOfwork.Orders.UpdateAsync(order);
-                _unitOfwork.SaveAsync();
+            await _unitOfwork.Orders.UpdateAsync(order);
+                
 
             }
         }
