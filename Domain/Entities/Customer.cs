@@ -1,8 +1,12 @@
 ﻿namespace Domain.entities;
 
-public class Customer : Person
+public class Customer 
 {
-    public int Id { get; set; }
+    public required Person  Person { get; set; }
+    public  int CustomerId { get; set; }
     public int Point {  get; set; }
     public int PurchaseHistoryId {  get; set; }
+
+
+
 }

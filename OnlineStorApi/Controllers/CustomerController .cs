@@ -1,21 +1,13 @@
 ﻿using Application.Services;
 using Domain.entities;
 using Microsoft.AspNetCore.Mvc;
-using OnlineStorAccess.Services;
-using System.Threading.Tasks;
-
 namespace OnlineStorApi.Controllers
 {
     [Route("api/Customer")]
     [ApiController]
-    public class CustomerContoller : ControllerBase
+    public class CustomerContoller(CustomerService customerService) : ControllerBase
     {
-        private readonly CustomerService  _customerService ;
-       
-        public CustomerContoller(CustomerService customerService)
-        {
-            _customerService = customerService;
-        }
+        private readonly CustomerService _customerService = customerService;
 
         [HttpGet("All", Name = "GetAllCustomers")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -25,7 +17,7 @@ namespace OnlineStorApi.Controllers
         {
           
             var CustomerList = await _customerService.GetAllAsync();
-            if (CustomerList.Count() == 0)
+            if (CustomerList.Any())
             {
                 return NotFound("No Customers Found");
 
@@ -65,8 +57,8 @@ namespace OnlineStorApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Customer>> AddCustomerAsync(Customer customer)
         {
-            if (customer == null || string.IsNullOrEmpty(customer.FName) 
-                || string.IsNullOrEmpty(customer.LName))
+            if (customer == null || string.IsNullOrEmpty(customer.Person.FName) 
+                || string.IsNullOrEmpty(customer.Person.LName))
                
             {
                 return BadRequest($"invalid Customer Data ");
@@ -78,7 +70,7 @@ namespace OnlineStorApi.Controllers
 
             if (CustomerID != 0)
             {
-                return CreatedAtRoute($"GetCustomerByID",new {id=customer.Id }, customer);
+                return CreatedAtRoute($"GetCustomerByID",new {id=customer.CustomerId }, customer);
             }
             else
                 return BadRequest($"adding Failed  :( ");
@@ -91,8 +83,8 @@ namespace OnlineStorApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task< ActionResult<Customer>> UbdateCustomerAsync(int ID, Customer UpdatedCustomer)
         {
-            if (ID<1 || UpdatedCustomer == null || string.IsNullOrEmpty(UpdatedCustomer.FName)
-                || string.IsNullOrEmpty(UpdatedCustomer.LName))
+            if (ID < 1 || UpdatedCustomer == null || string.IsNullOrEmpty(UpdatedCustomer.Person.FName)
+                || string.IsNullOrEmpty(UpdatedCustomer.Person.LName))
             {
                 return BadRequest($"invalid Data ");
             }
@@ -104,7 +96,7 @@ namespace OnlineStorApi.Controllers
 
             if (customer != null)
             {
-                UpdatedCustomer.Id = customer.Id;
+                UpdatedCustomer.CustomerId = customer.CustomerId;
 
                 await _customerService.UpdateAsync(UpdatedCustomer);
                 

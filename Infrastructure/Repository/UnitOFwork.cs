@@ -27,26 +27,26 @@ namespace Infrastructure.Repository
         }
 
 
-        public IGenericRepository<User> Users {  get; private set; }
+        public IUserRepository<User> Users {  get; private set; }
 
-        public IGenericRepository<Customer> Customers { get; private set; }
+        public ICustomerRepository<Customer> Customers { get; private set; }
 
-        public IGenericRepository<Order> Orders { get; private set; }
+        public IOrderRepository<Order> Orders { get; private set; }
 
-        public IGenericRepository<Item> Items { get; private set; }
-        public IGenericRepository<Invoice> Invoices { get; private set; }
+        public IItemRepository<Item> Items { get; private set; }
+        public IInvoiceRepository<Invoice> Invoices { get; private set; }
 
-        public IGenericRepository<ItemGallery> ItemGallerys { get; private set; }
+        public IItemGalleryRepository<ItemGallery> ItemGallerys { get; private set; }
 
-        public IGenericRepository<Inventory> Inventorys { get; private set; }
+        public IInventoryRepository<Inventory> Inventorys { get; private set; }
 
-        public IGenericRepository<Review> Reviews { get; private set; }
+        public IReviewRepository<Review> Reviews { get; private set; }
 
-        public IGenericRepository<Sale> Salles { get; private set; }
+        public ISaleRepository<Sale> Salles { get; private set; }
 
-        public IGenericRepository<Person> People {get; private set;}
+        public IPersonRepository<Person> People {get; private set;}
 
-        public IGenericRepository<PurchaseHistory> PurchasesHistory { get; private set; }
+        public IPurchaseHistoryRepository<PurchaseHistory> PurchasesHistory { get; private set; }
         public async Task SaveAsync() => await _appDbContext.SaveChangesAsync();
 
         public void Dispose()=>_appDbContext.Dispose();

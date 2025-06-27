@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using OnlineStorAccess.Services;
 using System.Threading.Tasks;
 
-namespace OnlineStorApi.Controllers
+namespace OnlineStorApi.Controller
 {
     [Route("api/Orders")]
     [ApiController]

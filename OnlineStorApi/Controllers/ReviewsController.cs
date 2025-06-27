@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineStorAccess.Services;
 
-namespace OnlineStorApi.Controllers
+namespace OnlineStorApi.Controller
 {
     [Route("api/Reviews")]
     [ApiController]

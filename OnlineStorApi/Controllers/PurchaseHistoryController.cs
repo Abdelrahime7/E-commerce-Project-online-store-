@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace OnlineStorApi.Controllers
+namespace OnlineStorApi.Controller
 {
     [Route("api/PurchaseHistoryHistory")]
     [ApiController]

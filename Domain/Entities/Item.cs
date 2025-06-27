@@ -11,4 +11,5 @@ public class Item
     public DateTime ExpireDate { get; set; }
     public DateTime ProdDate { get; set; }
     public UnitTypes UnitType { get; set; }
+    public int InventoryId {  get; set; }
 }

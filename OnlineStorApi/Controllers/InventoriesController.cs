@@ -6,7 +6,7 @@ using Domain.entities;
 using Infrastructure.ADbContext;
 using OnlineStorAccess.Services;
 
-namespace OnlineStorApi.Controllers
+namespace OnlineStorApi.Controller
 {
     [Route("api/Inventories")]
     [ApiController]

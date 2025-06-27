@@ -1,12 +1,15 @@
 ﻿using Domain.entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.ComponentModel.DataAnnotations;
 
 namespace Infrastructure.ADbContext
 { 
 
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
+        public DbSet<Person> People { get; set; }
         public DbSet<Customer> Customers { get; set; } 
         public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Item> Items { get; set; }
@@ -15,11 +18,15 @@ namespace Infrastructure.ADbContext
         public DbSet<Order> Orders { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<User> Users { get; set; }
-        
+        public DbSet<Sale> Salles { get; set; }
+        public DbSet<PurchaseHistory> PurchasesHistory { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
+      
     }
 }

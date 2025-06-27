@@ -49,11 +49,11 @@ namespace Infrastructure.Repository
                 throw new Exception(ex.Message);
             }
         }
-        public async Task<T> GetByIDAsync(int id)
+        public  async  Task<T>  GetByIDAsync(int id)
         {
             try
             {
-                return await _dbSet.FindAsync(id);
+                 return await  _dbSet .FindAsync(id);
             }
             catch ( Exception ex) { throw new Exception(ex.Message); }
         }

@@ -1,6 +1,4 @@
-﻿using Application.Services;
-using Domain.entities;
-using Microsoft.AspNetCore.Http;
+﻿using Domain.entities;
 using Microsoft.AspNetCore.Mvc;
 using OnlineStorAccess.Services;
 
@@ -8,15 +6,11 @@ namespace OnlineStorApi.Controllers
 {
     [Route("api/Users")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController(UserService usersService) : ControllerBase
     {
 
 
-        private readonly UserService _usersService;
-        public UsersController(UserService usersService)
-        {
-            _usersService = usersService;
-        }
+        private readonly UserService _usersService = usersService;
 
         [HttpGet("All", Name = "GetAllPeopl")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -26,7 +20,7 @@ namespace OnlineStorApi.Controllers
         {
 
             var UsersList = await _usersService.GettallAsync();
-            if (UsersList.Count() == 0)
+            if (UsersList.Any())
             {
                 return NotFound("No Users Found");
 
@@ -66,7 +60,7 @@ namespace OnlineStorApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<User>> AddUserAsync(User User)
         {
-            if (User == null || string.IsNullOrEmpty(User.FName) || string.IsNullOrEmpty(User.LName))
+            if (User == null || string.IsNullOrEmpty(User.Person.FName))
 
             {
                 return BadRequest($"invalid User Data ");
@@ -91,7 +85,7 @@ namespace OnlineStorApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<User>> UbdateUserAsync(int ID, User UpdatedUser)
         {
-            if (ID < 1 || UpdatedUser == null || string.IsNullOrEmpty(UpdatedUser.FName) || string.IsNullOrEmpty(UpdatedUser.LName))
+            if (ID < 1 || UpdatedUser == null)
             {
                 return BadRequest($"invalid Data ");
             }

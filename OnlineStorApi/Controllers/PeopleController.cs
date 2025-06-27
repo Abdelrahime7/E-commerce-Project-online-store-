@@ -3,7 +3,7 @@ using Domain.entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
-namespace OnlineStorApi.Controllers
+namespace OnlineStorApi.Controller
 {
     [Route("api/People")]
     [ApiController]
