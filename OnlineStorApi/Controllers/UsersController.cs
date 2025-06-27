@@ -1,4 +1,5 @@
-﻿using Domain.entities;
+﻿using Application.Interface;
+using Domain.entities;
 using Microsoft.AspNetCore.Mvc;
 using OnlineStorAccess.Services;
 
@@ -6,11 +7,12 @@ namespace OnlineStorApi.Controllers
 {
     [Route("api/Users")]
     [ApiController]
-    public class UsersController(UserService usersService) : ControllerBase
+    public class UsersController(UserService usersService,ICustomerRepository<Customer> cRepository ) : ControllerBase
     {
 
 
         private readonly UserService _usersService = usersService;
+        private  readonly ICustomerRepository<Customer> _cRepository = cRepository;
 
         [HttpGet("All", Name = "GetAllPeopl")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -18,7 +20,8 @@ namespace OnlineStorApi.Controllers
 
         public async Task<ActionResult<IEnumerable<User>>> AllUsersAsync()
         {
-
+         
+           
             var UsersList = await _usersService.GettallAsync();
             if (UsersList.Any())
             {

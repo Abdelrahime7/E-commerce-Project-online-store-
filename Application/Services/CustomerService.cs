@@ -1,22 +1,24 @@
 ﻿
 using Application.Interface;
 using Domain.entities;
-using Domain.Interfaces;
+using Domain.Interfaces.Generic;
 
 namespace Application.Services
 {
 
-    public class CustomerService(IUnitOfWork unitOfwork)
-
+    public class CustomerService(IUnitOfWork unitOfwork,ICustomerRepository<Customer> customerRepository)
+        
 
 
 
     {
         private readonly IUnitOfWork _unitOfwork = unitOfwork;
-
+     
+        private readonly ICustomerRepository<Customer> _customerRepository= customerRepository;
         public async Task<int> AddAsync(Customer customer)
-        {
-
+        { 
+           
+       
             if (customer != null)
             {
                 await _unitOfwork.Customers.AddAsync(customer);

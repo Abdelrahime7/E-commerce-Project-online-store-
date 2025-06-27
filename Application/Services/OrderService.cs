@@ -1,5 +1,5 @@
 ﻿using Domain.entities;
-using Domain.Interfaces;
+using Domain.Interfaces.Generic;
 using System.Threading.Tasks;
 
 namespace OnlineStorAccess.Services

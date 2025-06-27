@@ -1,4 +1,4 @@
-using Domain.Interfaces;
+using Domain.Interfaces.Generic;
 using Infrastructure.ADbContext;
 using Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;

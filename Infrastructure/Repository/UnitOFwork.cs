@@ -1,6 +1,7 @@
 ﻿using Domain.entities;
-using Domain.Interfaces;
 using Infrastructure.ADbContext;
+using Application.Interface;
+using Domain.Interfaces.Generic;
 
 namespace Infrastructure.Repository
 {
@@ -12,17 +13,17 @@ namespace Infrastructure.Repository
         public UnitOFwork(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
-            Users = new GenericRepository<User>(_appDbContext);
-            Customers = new GenericRepository<Customer>(_appDbContext);
-            Orders = new GenericRepository<Order>(_appDbContext);
-            Items = new GenericRepository<Item>(_appDbContext);
-            Invoices = new GenericRepository<Invoice>(_appDbContext);
-            ItemGallerys = new GenericRepository<ItemGallery>(_appDbContext);
-            Inventorys = new GenericRepository<Inventory>(_appDbContext);
-            Reviews = new GenericRepository<Review>(_appDbContext);
-            Salles = new GenericRepository<Sale>(_appDbContext);
-            People = new GenericRepository<Person>(_appDbContext);
-            PurchasesHistory= new GenericRepository<PurchaseHistory>(_appDbContext);
+            Users = (IUserRepository<User>) new GenericRepository<User>(_appDbContext);
+            Customers = (ICustomerRepository<Customer>)new GenericRepository<Customer>(_appDbContext);
+            Orders =(IOrderRepository<Order>) new GenericRepository<Order>(_appDbContext);
+            Items = (IItemRepository<Item>)new GenericRepository<Item>(_appDbContext);
+            Invoices = (IInvoiceRepository<Invoice>)new GenericRepository<Invoice>(_appDbContext);
+            ItemGallerys =(IItemGalleryRepository<ItemGallery>) new GenericRepository<ItemGallery>(_appDbContext);
+            Inventorys =(IInventoryRepository<Inventory>) new GenericRepository<Inventory>(_appDbContext);
+            Reviews =(IReviewRepository<Review>) new GenericRepository<Review>(_appDbContext);
+            Salles =(ISaleRepository<Sale>) new GenericRepository<Sale>(_appDbContext);
+            People =(IPersonRepository<Person>) new GenericRepository<Person>(_appDbContext);
+            PurchasesHistory= (IPurchaseHistoryRepository<PurchaseHistory>)new GenericRepository<PurchaseHistory>(_appDbContext);
 
         }
 
@@ -47,6 +48,29 @@ namespace Infrastructure.Repository
         public IPersonRepository<Person> People {get; private set;}
 
         public IPurchaseHistoryRepository<PurchaseHistory> PurchasesHistory { get; private set; }
+
+        IGenericRepository<User> IUnitOfWork.Users => Users;
+
+        IGenericRepository<Customer> IUnitOfWork.Customers => Customers;
+
+        IGenericRepository<Order> IUnitOfWork.Orders => Orders;
+
+        IGenericRepository<Item> IUnitOfWork.Items => Items;
+
+        IGenericRepository<Invoice> IUnitOfWork.Invoices => Invoices;
+
+        IGenericRepository<ItemGallery> IUnitOfWork.ItemGallerys => ItemGallerys;
+
+        IGenericRepository<Inventory> IUnitOfWork.Inventorys => Inventorys;
+
+        IGenericRepository<Review> IUnitOfWork.Reviews => Reviews;
+
+        IGenericRepository<Sale> IUnitOfWork.Salles => Salles;
+
+        IGenericRepository<Person> IUnitOfWork.People => People;
+
+        IGenericRepository<PurchaseHistory> IUnitOfWork.PurchasesHistory => PurchasesHistory;
+
         public async Task SaveAsync() => await _appDbContext.SaveChangesAsync();
 
         public void Dispose()=>_appDbContext.Dispose();
