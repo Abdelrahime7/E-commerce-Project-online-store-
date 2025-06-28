@@ -6,7 +6,7 @@ using Domain.Interfaces.Generic;
 namespace Application.Services
 {
 
-    public class CustomerService(IUnitOfWork unitOfwork,ICustomerRepository<Customer> customerRepository)
+    public class CustomerService(IUnitOfWork unitOfwork)
         
 
 
@@ -14,7 +14,6 @@ namespace Application.Services
     {
         private readonly IUnitOfWork _unitOfwork = unitOfwork;
      
-        private readonly ICustomerRepository<Customer> _customerRepository= customerRepository;
         public async Task<int> AddAsync(Customer customer)
         { 
            

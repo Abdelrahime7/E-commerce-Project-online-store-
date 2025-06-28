@@ -5,10 +5,9 @@ using Domain.Interfaces.Generic;
 
 namespace Application.Interface
 {
-    public interface ICustomerRepository<T> :IGenericRepository<Customer>
+    public interface IPersonRepository  : IGenericRepository<Person>
     {
 
 
     }
-
 }

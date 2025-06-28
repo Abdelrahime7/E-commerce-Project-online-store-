@@ -5,7 +5,7 @@ using Domain.Interfaces.Generic;
 
 namespace Application.Interface
 {
-    public interface IInvoiceRepository<T> : IGenericRepository<Invoice>
+    public interface IInvoiceRepository : IGenericRepository<Invoice>
     {
 
 

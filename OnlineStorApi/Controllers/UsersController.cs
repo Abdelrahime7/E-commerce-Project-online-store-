@@ -7,12 +7,11 @@ namespace OnlineStorApi.Controllers
 {
     [Route("api/Users")]
     [ApiController]
-    public class UsersController(UserService usersService,ICustomerRepository<Customer> cRepository ) : ControllerBase
+    public class UsersController(UserService usersService ) : ControllerBase
     {
 
 
         private readonly UserService _usersService = usersService;
-        private  readonly ICustomerRepository<Customer> _cRepository = cRepository;
 
         [HttpGet("All", Name = "GetAllPeopl")]
         [ProducesResponseType(StatusCodes.Status200OK)]

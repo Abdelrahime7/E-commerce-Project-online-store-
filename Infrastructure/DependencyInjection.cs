@@ -1,6 +1,9 @@
+using Application.Interface;
+using Domain.entities;
 using Domain.Interfaces.Generic;
 using Infrastructure.ADbContext;
-using Infrastructure.Repository;
+using Infrastructure.Repository.GenericRepo;
+using Infrastructure.Repository.specific_Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +19,18 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
         //Register your services here
-        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+        services.AddScoped<ICustomerRepository,CustomerRepository>();
+        services.AddScoped<IInventoryRepository, InventoryRepository>();
+        services.AddScoped<IItemRepository, ItemRepository>();
+        services.AddScoped<IItemGalleryRepository, ItemGalleryRepository>();
+        services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IPersonRepository,PersonRepository>();
+        services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+        services.AddScoped<IReviewRepository, ReviewRepository>();
+        services.AddScoped<ISaleRepository, SaleRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+
         services.AddScoped<IUnitOfWork, UnitOFwork>();
         
         return services;

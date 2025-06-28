@@ -1,8 +1,6 @@
 ﻿using Domain.entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.ComponentModel.DataAnnotations;
+
 
 namespace Infrastructure.ADbContext
 { 
