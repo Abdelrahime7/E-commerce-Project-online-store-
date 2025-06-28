@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository.GenericRepo
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class,IEntity
     {
 
        private readonly  DbContext  _dbContext ;
@@ -19,12 +19,13 @@ namespace Infrastructure.Repository.GenericRepo
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
 
 
-        public async Task AddAsync(T entity)
+        public async Task<int> AddAsync(T entity)
         {
             try
             {
                 await _dbSet.AddAsync(entity);
                 await _dbContext.SaveChangesAsync();
+                return entity.id;
             }
             catch (Exception ex) 
             {

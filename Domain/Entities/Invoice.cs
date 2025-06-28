@@ -1,6 +1,8 @@
-﻿namespace Domain.entities;
+﻿using Domain.Interface;
 
-public class Invoice
+namespace Domain.entities;
+
+public class Invoice :IEntity
 {
     public int Id { get; set; }
     public  int ItemId { get; set; }

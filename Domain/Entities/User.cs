@@ -1,6 +1,8 @@
-﻿namespace Domain.entities;
+﻿using Domain.Interface;
 
-public class User
+namespace Domain.entities;
+
+public class User:IEntity
 {
     public int Id { get; set; }
     public required Person Person { get; set; }

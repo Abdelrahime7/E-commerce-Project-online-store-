@@ -1,6 +1,8 @@
-﻿namespace Domain.entities;
+﻿using Domain.Interface;
 
-public class Inventory
+namespace Domain.entities;
+
+public class Inventory:IEntity
 {
     public int Id { get; set; }
     public string ?InventoryDevision  { get; set; }

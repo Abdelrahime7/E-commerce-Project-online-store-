@@ -1,6 +1,8 @@
-﻿namespace Domain.entities;
+﻿using Domain.Interface;
 
-public class PurchaseHistory
+namespace Domain.entities;
+
+public class PurchaseHistory:IEntity
 {
     public int  Id { get; set; }
     public int OrderId  { get; set; }

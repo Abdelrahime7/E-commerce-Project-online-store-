@@ -1,6 +1,8 @@
-﻿namespace Domain.entities;
+﻿using Domain.Interface;
 
-public class Review
+namespace Domain.entities;
+
+public class Review:IEntity
 {
     public int Id { get; set; }
     public string ? Descreption { get; set; }

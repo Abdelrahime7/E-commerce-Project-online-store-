@@ -1,8 +1,9 @@
 ﻿using Domain.Enums;
+using Domain.Interface;
 
 namespace Domain.entities;
 
-public class Item
+public class Item:IEntity
 {
     public int Id { get; set; }
     public string? Name { get; set; }

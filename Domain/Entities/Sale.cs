@@ -1,6 +1,8 @@
-﻿namespace Domain.entities;
+﻿using Domain.Interface;
 
-public class Sale
+namespace Domain.entities;
+
+public class Sale:IEntity
 {
     public  int Id { get; set; }
     public  int OrderId { get; set; }

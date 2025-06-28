@@ -1,8 +1,9 @@
 ﻿using Domain.Enums;
+using Domain.Interface;
 
 namespace Domain.entities;
 
-public class Order
+public class Order:IEntity
 {
     public int Id { get; set; }
     public int InvoiceId { get; set; }

@@ -1,6 +1,8 @@
-﻿namespace Domain.entities;
+﻿using Domain.Interface;
 
-public class ItemGallery
+namespace Domain.entities;
+
+public class ItemGallery:IEntity
 {
     public int  Id  { get; set; }
     public int ItemId { get; set; }
