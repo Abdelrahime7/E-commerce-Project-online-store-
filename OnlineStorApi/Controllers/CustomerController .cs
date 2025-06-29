@@ -1,13 +1,14 @@
-﻿using Application.Services;
+﻿using Application.Interface;
 using Domain.entities;
 using Microsoft.AspNetCore.Mvc;
 namespace OnlineStorApi.Controllers
 {
     [Route("api/Customer")]
     [ApiController]
-    public class CustomerContoller(CustomerService customerService) : ControllerBase
+    public class CustomerContoller( ICustomerRepository customerRepository) : ControllerBase
     {
-        private readonly CustomerService _customerService = customerService;
+       
+        private readonly ICustomerRepository _customerRepository = customerRepository; 
 
         [HttpGet("All", Name = "GetAllCustomers")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -16,7 +17,8 @@ namespace OnlineStorApi.Controllers
         public  async  Task< ActionResult<IEnumerable<Customer>>> AllCustomersAsync()
         {
           
-            var CustomerList = await _customerService.GetAllAsync();
+
+            var CustomerList = await _customerRepository.GetAllAsync();
             if (CustomerList.Any())
             {
                 return NotFound("No Customers Found");
@@ -39,7 +41,7 @@ namespace OnlineStorApi.Controllers
             }
 
             // we retriev full Customer here ,maybe we  need some of its method to do some logic
-            var customer =  await _customerService.GetByIDAsync(ID);
+            var customer =  await _customerRepository.GetByIDAsync(ID);
 
             if (customer is null)
             {
@@ -65,12 +67,12 @@ namespace OnlineStorApi.Controllers
             }
 
 
-           var CustomerID = await _customerService.AddAsync(customer);
+           var CustomerID = await _customerRepository.AddAsync(customer);
             
 
             if (CustomerID != 0)
             {
-                return CreatedAtRoute($"GetCustomerByID",new {id=customer.CustomerId }, customer);
+                return CreatedAtRoute($"GetCustomerByID",new {id=customer.Id }, customer);
             }
             else
                 return BadRequest($"adding Failed  :( ");
@@ -90,15 +92,15 @@ namespace OnlineStorApi.Controllers
             }
 
 
-            var customer = await _customerService.GetByIDAsync(ID);
+            var customer = await _customerRepository.GetByIDAsync(ID);
 
             
 
             if (customer != null)
             {
-                UpdatedCustomer.CustomerId = customer.CustomerId;
+                UpdatedCustomer.Id = customer.Id;
 
-                await _customerService.UpdateAsync(UpdatedCustomer);
+                await _customerRepository.UpdateAsync(UpdatedCustomer);
                 
                  return Ok($"Student with ID = {ID} Updated Successfully ");
                 
@@ -119,12 +121,12 @@ namespace OnlineStorApi.Controllers
             {
                 return BadRequest("Invalid ID");
             }
-            var customer = await _customerService.GetByIDAsync(ID);
+            var customer = await _customerRepository.GetByIDAsync(ID);
 
             if (customer != null)
             {
 
-                if (await _customerService.DeleteAsync(ID))
+                if (await _customerRepository.DeleteAsync(ID))
                 {
                     return Ok($"Student with ID = {ID} Deleted Successfully ");
                 }

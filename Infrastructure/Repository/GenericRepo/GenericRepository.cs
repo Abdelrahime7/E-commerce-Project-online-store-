@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces.Generic;
+﻿using Domain.Interface;
+using Domain.Interfaces.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository.GenericRepo
@@ -25,7 +26,7 @@ namespace Infrastructure.Repository.GenericRepo
             {
                 await _dbSet.AddAsync(entity);
                 await _dbContext.SaveChangesAsync();
-                return entity.id;
+                return entity.Id;
             }
             catch (Exception ex) 
             {
@@ -35,7 +36,7 @@ namespace Infrastructure.Repository.GenericRepo
 
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task <bool> DeleteAsync(int id)
         {
             try
             {
@@ -44,11 +45,13 @@ namespace Infrastructure.Repository.GenericRepo
                 {
                     _dbSet.Remove(entity);
                     await _dbContext.SaveChangesAsync();
+                    return true;
                 }
             }
             catch (Exception ex) {
                 throw new Exception(ex.Message);
             }
+            return false;
         }
         public  async  Task<T>  GetByIDAsync(int id)
         {

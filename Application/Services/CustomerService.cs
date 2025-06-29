@@ -21,7 +21,7 @@ namespace Application.Services
             if (customer != null)
             {
                 await _unitOfwork.Customers.AddAsync(customer);
-                return customer.CustomerId;
+                return customer.Id;
             }
 
 
