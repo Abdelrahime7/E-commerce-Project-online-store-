@@ -12,5 +12,9 @@ public class Item:IEntity
     public DateTime ExpireDate { get; set; }
     public DateTime ProdDate { get; set; }
     public UnitTypes UnitType { get; set; }
-    public int InventoryId {  get; set; }
+
+    public  required Inventory Inventory {  get; set; }
+    public ItemGallery ? ItemGallery { get; set; }
+    
+   
 }

@@ -9,4 +9,7 @@ public class Person:IEntity
     public required string  LName { get; set; }
     public string? Phone { get; set; }
     public string? Email { get; set; }
+
+    public  User ? User { get; set; } 
+    public Customer? Customer { get; set; }
 }

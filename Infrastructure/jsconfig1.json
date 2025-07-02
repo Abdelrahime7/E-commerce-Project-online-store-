@@ -1,4 +1,4 @@
 {
-  "Constr":"Server=. ,DataBase= ,"
-    
+  "Constr": "Server=. ; DataBase=StoreDB ; Integrated Security=SSPI;TrustServerCertificate=true"
+
 }

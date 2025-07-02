@@ -1,6 +1,8 @@
 using Application;
 using DotNetEnv;
 using Infrastructure;
+using Infrastructure.ADbContext;
+using Microsoft.EntityFrameworkCore;
 using OnlineStorApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<AppDbContext>(O => O.UseSqlServer(builder.Configuration.GetConnectionString("Constr")));
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 

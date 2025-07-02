@@ -1,5 +1,6 @@
 ﻿using Domain.entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 
 namespace Infrastructure.ADbContext
@@ -19,6 +20,14 @@ namespace Infrastructure.ADbContext
         public DbSet<Sale> Salles { get; set; }
         public DbSet<PurchaseHistory> PurchasesHistory { get; set; }
 
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            var configu = new ConfigurationBuilder().AddJsonFile("jsconfig1.json").Build();
+            var constr = configu.GetSection("Constr").Value;
+            optionsBuilder.UseSqlServer(constr);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
