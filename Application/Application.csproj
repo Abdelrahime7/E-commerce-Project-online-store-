@@ -15,4 +15,29 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Moduels\User\Commands\" />
+    <Folder Include="Moduels\User\Queries\" />
+    <Folder Include="Moduels\Person\Commands\" />
+    <Folder Include="Moduels\Person\Queries\" />
+    <Folder Include="Moduels\Order\Commands\" />
+    <Folder Include="Moduels\Order\Queries\" />
+    <Folder Include="Moduels\Purchase\Commands\" />
+    <Folder Include="Moduels\Purchase\Queries\" />
+    <Folder Include="Moduels\Review\Commands\" />
+    <Folder Include="Moduels\Review\Queries\" />
+    <Folder Include="Moduels\Sale\Commands\" />
+    <Folder Include="Moduels\Sale\Queries\" />
+    <Folder Include="Moduels\ItemGallery\Commands\" />
+    <Folder Include="Moduels\ItemGallery\Queries\" />
+    <Folder Include="Moduels\Invoice\Commands\" />
+    <Folder Include="Moduels\Invoice\Queries\" />
+    <Folder Include="Moduels\Inventory\Commands\" />
+    <Folder Include="Moduels\Inventory\Queries\" />
+    <Folder Include="Moduels\Item\Commands\" />
+    <Folder Include="Moduels\Item\Queries\" />
+    <Folder Include="Moduels\Customer\Commands\" />
+    <Folder Include="Moduels\Customer\Queries\" />
+  </ItemGroup>
+
 </Project>
