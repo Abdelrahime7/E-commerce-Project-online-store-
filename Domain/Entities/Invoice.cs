@@ -9,10 +9,10 @@ public class Invoice :IEntity
     public decimal Price { get; set; }
     public DateTime Date { get; set; }
     public int OrderID { get; set; }
-    public int ItmenID { get; set; }
+    public int ItemID { get; set; }
 
-    public required Item Item  { get; set; }
+    public  Item Item  { get; set; }
 
-    public  required Order Order { get; set; }
+    public   Order Order { get; set; }
     
 }

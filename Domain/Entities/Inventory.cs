@@ -8,6 +8,6 @@ public class Inventory:IEntity
     public int ? InventoryDevision  { get; set; }
     public int ItemQuantity { get; set; }
     public int ItemID { get; set; }
-    public required Item Item { get; set; }
+    public  Item ? Item { get; set; }
 
 }

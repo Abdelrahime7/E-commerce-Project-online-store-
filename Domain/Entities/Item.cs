@@ -13,7 +13,7 @@ public class Item:IEntity
     public DateTime ProdDate { get; set; }
     public UnitTypes UnitType { get; set; }
 
-    public  required Inventory Inventory {  get; set; }
+    public  Inventory Inventory {  get; set; }
     public ItemGallery ? ItemGallery { get; set; }
     
    

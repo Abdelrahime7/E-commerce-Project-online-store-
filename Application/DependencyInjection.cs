@@ -9,6 +9,12 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
+        services.AddMediatR(Conf =>
+        {
+            Conf.RegisterServicesFromAssemblies();
+
+        }
+        );
         services.AddAutoMapper(typeof(CustomerMapping));
         
         return services;

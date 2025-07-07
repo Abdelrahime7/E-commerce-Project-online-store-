@@ -10,8 +10,8 @@ public class Review:IEntity
 
     public int CustomerId { get; set; }
     public int ItemID { get; set; }
-    public required Customer Customer { get; set; }
-    public  required Item Item { get; set; }
+    public  Customer Customer { get; set; }
+    public   Item Item { get; set; }
 
 
 }

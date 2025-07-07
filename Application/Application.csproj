@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="MediatR" Version="13.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.6" />
   </ItemGroup>
 
@@ -32,11 +33,9 @@
     <Folder Include="Moduels\ItemGallery\Queries\" />
     <Folder Include="Moduels\Invoice\Commands\" />
     <Folder Include="Moduels\Invoice\Queries\" />
-    <Folder Include="Moduels\Inventory\Commands\" />
     <Folder Include="Moduels\Inventory\Queries\" />
     <Folder Include="Moduels\Item\Commands\" />
     <Folder Include="Moduels\Item\Queries\" />
-    <Folder Include="Moduels\Customer\Commands\" />
     <Folder Include="Moduels\Customer\Queries\" />
   </ItemGroup>
 
