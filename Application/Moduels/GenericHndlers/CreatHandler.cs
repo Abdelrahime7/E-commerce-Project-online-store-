@@ -7,7 +7,7 @@ using Domain.Interfaces.Generic;
 using MediatR;
 
 
-namespace Application.Moduels
+namespace Application.Moduels.GenericHndlers
 {
 
      

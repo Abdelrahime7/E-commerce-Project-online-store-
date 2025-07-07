@@ -1,6 +1,7 @@
 ﻿using Application.DTOs;
 using Application.Interface;
 using Application.Moduels.Customer.Commands;
+using Application.Moduels.GenericHndlers;
 using Application.Moduels.Item.Commands;
 using AutoMapper;
 using Domain.Interface;

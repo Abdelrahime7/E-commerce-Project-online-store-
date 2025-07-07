@@ -3,6 +3,7 @@ using AutoMapper;
 using Domain.Interfaces.Generic;
 using Domain.Interface;
 using Application.Moduels.User.Commands;
+using Application.Moduels.GenericHndlers;
 
 
 namespace Application.Moduels.Person.Handlers
