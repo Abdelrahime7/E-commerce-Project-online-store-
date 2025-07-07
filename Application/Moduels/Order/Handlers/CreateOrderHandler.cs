@@ -1,11 +1,10 @@
 ﻿using Application.Interface;
 using AutoMapper;
-using MediatR;
-using Application.Moduels.Item.Commands;
-using Application.Moduels.Customer.Commands;
+
 using Domain.Interface;
 using Domain.Interfaces.Generic;
 using Application.Moduels.GenericHndlers;
+using Application.Moduels.Order.Commands;
 
 
 namespace Application.Moduels.Order.Handlers

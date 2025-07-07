@@ -20,7 +20,7 @@ namespace Infrastructure.ADbContext.Configuration
             ;
 
             builder .HasOne(I=>I.Item).WithMany().
-                HasForeignKey( I=> I.ItmenID).OnDelete(DeleteBehavior.Restrict);
+                HasForeignKey( I=> I.ItemID).OnDelete(DeleteBehavior.Restrict);
             ;
 
 
