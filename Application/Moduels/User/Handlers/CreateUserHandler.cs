@@ -6,7 +6,7 @@ using Application.Moduels.User.Commands;
 using Application.Moduels.GenericHndlers;
 
 
-namespace Application.Moduels.Person.Handlers
+namespace Application.Moduels.User.Handlers
 {
    
 

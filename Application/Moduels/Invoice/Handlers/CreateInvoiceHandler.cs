@@ -1,13 +1,10 @@
-﻿using Application.DTOs;
-using Application.Interface;
+﻿using Application.Interface;
 using AutoMapper;
-using MediatR;
-using Application.Moduels.ItemGallery.Commands;
-using Application.Moduels.Item.Commands;
-using Application.Moduels.Customer.Commands;
+
 using Domain.Interface;
 using Domain.Interfaces.Generic;
 using Application.Moduels.GenericHndlers;
+using Application.Moduels.Invoice.Commands;
 
 
 namespace Application.Moduels.Invoice.Handlers
