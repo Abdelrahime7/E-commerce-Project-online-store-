@@ -11,30 +11,28 @@ namespace Application.Moduels.GenericHndlers
 {
 
      
-   public abstract class CreatHandler  : IRequestHandler<IRequest<int>, int> 
+   public abstract class CreatHandler <TComande>  : IRequestHandler<TComande, int> 
+        where TComande : IRequest<int>
        
     {
        
-        private readonly IRequest<int> _request;
+        
         private readonly IMapper _mapper;
         private readonly IGenericRepository<IEntity> _repository;
 
 
-        protected CreatHandler(IRequest<int> request, IMapper mapper, IGenericRepository<IEntity> repository)
+        protected CreatHandler( IMapper mapper, IGenericRepository<IEntity> repository)
         {
-            _request = request;
+           
             _mapper = mapper;
             _repository = repository;
         }
 
-        public async Task<int> Handle(IRequest<int> request, CancellationToken cancellationToken)
+        public async Task<int> Handle(TComande request, CancellationToken cancellationToken)
         {
-            request = _request;
             var Entity = _mapper.Map<IEntity>(request);
-             await _repository.AddAsync(Entity);
+            await _repository.AddAsync(Entity);
             return Entity.Id;
-
-
         }
     }
 }

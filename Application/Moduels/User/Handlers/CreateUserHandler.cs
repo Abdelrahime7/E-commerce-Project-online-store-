@@ -1,5 +1,4 @@
-﻿using Application.Interface;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Interfaces.Generic;
 using Domain.Interface;
 using Application.Moduels.User.Commands;
@@ -8,14 +7,15 @@ using Application.Moduels.GenericHndlers;
 
 namespace Application.Moduels.User.Handlers
 {
-   
 
-    public class CreateUserHandler(CreateUserCommand command  , IMapper mapper, IUserRepository repository) : CreatHandler(command, mapper, (IGenericRepository<IEntity>)repository)
+    public class CreateUserHandler : CreatHandler<CreateUserCommand>
     {
-       
+        public CreateUserHandler(IMapper mapper, IGenericRepository<IEntity> repository) : base(mapper, repository)
+        {
+
+        }
 
     }
-
 
 
 
