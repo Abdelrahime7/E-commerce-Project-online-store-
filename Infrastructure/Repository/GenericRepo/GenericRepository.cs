@@ -62,13 +62,14 @@ namespace Infrastructure.Repository.GenericRepo
             catch ( Exception ex) { throw new Exception(ex.Message); }
         }
 
-        public  async Task UpdateAsync( T entity)
+        public  async Task<bool> UpdateAsync( T entity)
         {
             try
             {
 
                 _dbSet.Update(entity);
-                await _dbContext.SaveChangesAsync();
+               return await _dbContext.SaveChangesAsync()!=0;
+               
             }
             catch (Exception ex){ throw new Exception(ex.Message); }
         }

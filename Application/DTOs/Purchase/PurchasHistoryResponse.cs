@@ -1,10 +1,10 @@
 ﻿using Domain.entities;
 
-namespace Application.DTOs
+namespace Application.DTOs.Purchase
 {
-    public record PurchasHistoryDto
+    public record PurchasHistoryResponse
     {
-        
+        public int Id { get; set; }
         public int OrderId { get; set; }
         public int CustomerId { get; set; }
         

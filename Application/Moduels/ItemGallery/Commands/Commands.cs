@@ -1,16 +1,13 @@
-﻿using Application.DTOs;
-using Domain.entities;
+﻿using Application.DTOs.Customer;
+using Application.DTOs.ItemGallery;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Application.Moduels.ItemGallery.Commands
 {
 
         
     public record CreateItemGalleryCommand(ItemGalleryDto itemGalleryDto) : IRequest<int>;
+    public record UpdateItemGalleryCommand(ItemGalleryResponse Response) : IRequest<ItemGalleryDto>;
 
 }

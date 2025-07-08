@@ -1,13 +1,10 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Customer;
+using Application.DTOs.Order;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Moduels.Order.Commands
 {
     public record CreateOrderCommand(OrderDto orderDto) : IRequest<int>;
+    public record UpdateOrderCommand(OrderResponse Response) : IRequest<OrderDto>;
 
 }

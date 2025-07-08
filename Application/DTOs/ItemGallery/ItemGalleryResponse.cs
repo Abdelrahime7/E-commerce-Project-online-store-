@@ -1,9 +1,10 @@
 ﻿using Domain.entities;
 
-namespace Application.DTOs
+namespace Application.DTOs.ItemGallery
 {
-    public record ItemGalleryDto
+    public record ItemGalleryResponse
     {
+        public int Id { get; set; }
         public int ItemID { get; set; }
 
 

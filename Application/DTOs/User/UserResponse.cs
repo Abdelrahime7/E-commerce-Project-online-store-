@@ -1,11 +1,11 @@
 ﻿using Domain.entities;
 using Domain.Enums;
 
-namespace Application.DTOs
+namespace Application.DTOs.User
 {
-    public record UserDto
+    public record UserResponse
     {
-    
+        public int Id { get; set; }
         public string? UserName { get; set; }
         public string? Password { get; set; }
         public bool? IsAdmin { get; set; }

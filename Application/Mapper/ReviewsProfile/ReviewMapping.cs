@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Review;
 using AutoMapper;
 using Domain.entities;
 

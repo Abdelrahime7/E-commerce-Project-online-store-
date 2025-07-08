@@ -1,10 +1,10 @@
 ﻿using Domain.entities;
 
-namespace Application.DTOs
+namespace Application.DTOs.Person
 {
-    public record PersonDto
+    public record PersonResponse
     {
-
+        public int Id { get; set; }
         public required string FName { get; set; }
         public required string LName { get; set; }
         public string? Phone { get; set; }

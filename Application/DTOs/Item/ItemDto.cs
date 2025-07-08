@@ -1,7 +1,7 @@
 ﻿using Domain.entities;
 using Domain.Enums;
 
-namespace Application.DTOs
+namespace Application.DTOs.Item
 {
     public record ItemDto
     {

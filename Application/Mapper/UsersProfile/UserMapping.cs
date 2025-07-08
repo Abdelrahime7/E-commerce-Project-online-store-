@@ -1,6 +1,6 @@
 ﻿using Domain.entities;
 using AutoMapper;
-using Application.DTOs;
+using Application.DTOs.User;
 
 namespace Application.Mapper.UsersProfile
 {

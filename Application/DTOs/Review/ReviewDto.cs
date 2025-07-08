@@ -1,6 +1,6 @@
 ﻿using Domain.entities;
 
-namespace Application.DTOs
+namespace Application.DTOs.Review
 {
     public record ReviewDto
     {

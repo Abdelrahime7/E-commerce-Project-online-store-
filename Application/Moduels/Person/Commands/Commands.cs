@@ -1,15 +1,11 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Customer;
+using Application.DTOs.Person;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Application.Moduels.Person.Commands
 {
-    public record CreatePersonCommand(PersonDto personDto) : IRequest<int>
-    {
-      
-    }
+    public record CreatePersonCommand(PersonDto personDto) : IRequest<int>;
+    public record UpdatePersonCommand(PersonResponse Response) : IRequest<PersonDto>;
+
 }

@@ -1,13 +1,10 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Customer;
+using Application.DTOs.Item;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Moduels.Item.Commands
 {
     public record CreateItemCommand(ItemDto itemDto) : IRequest<int>;
+    public record UpdateItemCommand(ItemResponse Response) : IRequest<ItemDto>;
 
 }
