@@ -8,5 +8,5 @@ namespace Application.Moduels.Inventory.Commands
   
         public record CreateInventoryCommand(InventoryDto inventoryDto) : IRequest<int>;
 
-    public record UpdateInventoryCommand(InventoryResponse Response) : IRequest<CustomerDto>;
+    public record UpdateInventoryCommand(InventoryResponse Response) : IRequest<InventoryDto>;
 }

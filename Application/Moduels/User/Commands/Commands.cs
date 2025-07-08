@@ -1,5 +1,4 @@
-﻿using Application.DTOs.Customer;
-using Application.DTOs.User;
+﻿using Application.DTOs.User;
 using MediatR;
 
 

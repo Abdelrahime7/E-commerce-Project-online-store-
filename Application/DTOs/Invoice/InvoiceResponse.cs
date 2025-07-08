@@ -2,7 +2,7 @@
 {
     public record InvoiceResponse
     {
-     public string Id { get; set; }
+     public int Id { get; set; }
     public    short Quantity { get; set; } 
     public decimal Price { get; set; }
      public DateTime Date {  get; set; }
