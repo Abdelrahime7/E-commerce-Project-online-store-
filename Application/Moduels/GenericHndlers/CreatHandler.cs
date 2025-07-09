@@ -1,7 +1,4 @@
-﻿using Application.Interface;
-using Application.Moduels.Inventory.Commands;
-using AutoMapper;
-using Domain.entities;
+﻿using AutoMapper;
 using Domain.Interface;
 using Domain.Interfaces.Generic;
 using MediatR;

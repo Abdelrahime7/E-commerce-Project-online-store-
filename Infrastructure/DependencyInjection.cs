@@ -1,5 +1,5 @@
 using Application.Interface;
-using Domain.entities;
+using Application.Interfaces.Specific;
 using Domain.Interfaces.Generic;
 using Infrastructure.ADbContext;
 using Infrastructure.Repository.GenericRepo;
@@ -30,8 +30,9 @@ public static class DependencyInjection
         services.AddScoped<IReviewRepository, ReviewRepository>();
         services.AddScoped<ISaleRepository, SaleRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        
 
-        services.AddScoped<IUnitOfWork, UnitOFwork>();
+        services.AddScoped<ICustomerUnitOfWork, CustomerUnitOFwork>();
         
         return services;
     }

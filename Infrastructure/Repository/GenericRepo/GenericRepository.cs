@@ -1,4 +1,5 @@
-﻿using Domain.Interface;
+﻿using Domain.entities;
+using Domain.Interface;
 using Domain.Interfaces.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,7 +26,13 @@ namespace Infrastructure.Repository.GenericRepo
             try
             {
                 await _dbSet.AddAsync(entity);
-                await _dbContext.SaveChangesAsync();
+
+                bool deferSave = entity is Customer || entity is User;
+                if (!deferSave)
+                {
+                    await _dbContext.SaveChangesAsync();
+                }
+
                 return entity.Id;
             }
             catch (Exception ex) 
