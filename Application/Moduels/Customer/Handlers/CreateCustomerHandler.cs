@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using Application.Moduels.Customer.Commands;
 using MediatR;
-using Application.Interfaces.Specific;
+using Application.Interfaces.Specific.IunitOW;
 namespace Application.Moduels.Customer.Handlers
 {
 
     public  class CreateCustomerHandler : IRequestHandler<CreateCustomerCommand,int>
     
-
     {
 
 

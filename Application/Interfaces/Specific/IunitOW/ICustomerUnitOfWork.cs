@@ -2,7 +2,7 @@
 using Domain.Interfaces.Generic;
 
 
-namespace Application.Interfaces.Specific
+namespace Application.Interfaces.Specific.IunitOW
 {
     public interface ICustomerUnitOfWork :IUnitOfWork
     {

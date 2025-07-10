@@ -1,8 +1,7 @@
 ﻿
 using Infrastructure.ADbContext;
 using Application.Interface;
-
-using Application.Interfaces.Specific;
+using Application.Interfaces.Specific.IunitOW;
 
 namespace Infrastructure.Repository.GenericRepo
 {
