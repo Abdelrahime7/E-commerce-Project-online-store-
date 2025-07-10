@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 
 using Domain.Interface;
-using Domain.Interfaces.Generic;
 using Application.Moduels.Sale.Commands;
 using Application.Moduels.GenericHndlers;
 using Application.DTOs.Sale;
+using Application.Interfaces.Generic;
 
 namespace Application.Moduels.sale.Handlers
 {

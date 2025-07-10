@@ -1,6 +1,6 @@
-﻿using AutoMapper;
+﻿using Application.Interfaces.Generic;
+using AutoMapper;
 using Domain.Interface;
-using Domain.Interfaces.Generic;
 using MediatR;
 
 

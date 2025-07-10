@@ -1,9 +1,9 @@
 ﻿
 using Application.Moduels.ItemGallery.Commands;
 using Domain.Interface;
-using Domain.Interfaces.Generic;
 using Application.Moduels.GenericHndlers;
 using AutoMapper;
+using Application.Interfaces.Generic;
 
 
 namespace Application.Moduels.ItemGallery.Handlers

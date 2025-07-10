@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Domain.Interfaces.Generic;
 using Domain.Interface;
 using Application.Moduels.Sale.Commands;
 using Application.Moduels.GenericHndlers;
+using Application.Interfaces.Generic;
 
 
 namespace Application.Moduels.Sale.Handlers

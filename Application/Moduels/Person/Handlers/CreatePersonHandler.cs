@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-
-using Domain.Interfaces.Generic;
 using Domain.Interface;
 using Application.Moduels.GenericHndlers;
 using Application.Moduels.Person.Commands;
+using Application.Interfaces.Generic;
 
 
 namespace Application.Moduels.Person.Handlers

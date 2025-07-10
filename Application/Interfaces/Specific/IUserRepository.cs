@@ -1,7 +1,7 @@
-﻿    
+﻿
 
+using Application.Interfaces.Generic;
 using Domain.entities;
-using Domain.Interfaces.Generic;
 
 namespace Application.Interface
 {

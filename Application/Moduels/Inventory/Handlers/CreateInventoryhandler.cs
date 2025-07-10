@@ -1,9 +1,9 @@
 ﻿
 using AutoMapper;
-using  Application.Moduels.Inventory.Commands;
+using Application.Moduels.Inventory.Commands;
 using Domain.Interface;
-using Domain.Interfaces.Generic;
 using Application.Moduels.GenericHndlers;
+using Application.Interfaces.Generic;
 
 namespace Application.Moduels.Inventory.Handlers
 {

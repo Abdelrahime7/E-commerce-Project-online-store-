@@ -1,6 +1,6 @@
-﻿using Domain.entities;
+﻿using Application.Interfaces.Generic;
+using Domain.entities;
 using Domain.Interface;
-using Domain.Interfaces.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository.GenericRepo

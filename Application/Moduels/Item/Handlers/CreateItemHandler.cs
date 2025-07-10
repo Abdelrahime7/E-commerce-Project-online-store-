@@ -3,7 +3,7 @@ using Application.Moduels.Item.Commands;
 using Application.Moduels.GenericHndlers;
 using AutoMapper;
 using Domain.Interface;
-using Domain.Interfaces.Generic;
+using Application.Interfaces.Generic;
 
 
 namespace Application.Moduels.Item.Handlers

@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 
 using Domain.Interface;
-using Domain.Interfaces.Generic;
 using Application.Moduels.Review.Commands;
 using Application.Moduels.GenericHndlers;
 using Application.DTOs.Review;
+using Application.Interfaces.Generic;
 
 namespace Application.Moduels.Review.Handlers
 {
