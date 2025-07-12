@@ -11,7 +11,8 @@ namespace Application.DTOs.Order
         public decimal Total { get; set; }
         public int CustomerId { get; set; }
 
-    
+        
+
     }
 
 
